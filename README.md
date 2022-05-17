@@ -2,11 +2,18 @@
 Employee Registry project
 
 
-Start with opening environment 
+Start with creating environment 
 
-cd employee_env/Scripts/activate 
+python -m venv myenv
 
-After the environment is established, migrations should be made - 
+After creating environment - change directory to myenv - cd myenv/Scripts/activate 
+
+
+After the environment is established,
+
+change directory to employee registery directory where manage.py file is present 
+
+migrations should be made - 
 
 python manage.py makemigrations 
 python manage.py migrate 
