@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Employee System</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'employee_crud/styles.css' %}">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+  
+  </head>
+  <body>
+<div class= "nav-container">
+<h1 class="logo-main"> Aapti Techologies.</h1>
+<div class="nav-links">
+  <p class="nav-item" onclick="location.href='/emp'">Add Employees</p><br><br>
+  <p class="nav-item" onclick="location.href='/showemployee'">Employees List</p><br><br>
+  <p  style="padding:10px;"><a href="{% url 'logout' %}" class = "nav-item" >Logout</a></p>
+</div>
+</div>
+    <div class="add-container">
+     <p style="color: black;">Add Employee Details</p>
+      <div class="add-sub-container">
+          
+    <form method="POST" action="/emp">
+      {% csrf_token %}
+
+      <div class="form-group">
+        <label class="form-label">Title:</label>
+        <div>{{form.title}}</div>
+      </div>
+      <div class="form-group">
+        <label class="form-label">First Name:</label>
+        <div>{{form.firstname}}</div>
+      </div>
+
+      <div class="form-group">
+        <label class="form-label">Last Name:</label>
+       <div>{{form.lastname}}</div>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Email:</label>
+        <div>{{form.email}}</div>
+      </div>
+
+      <div class="form-group">
+        <label class="form-label">Role:</label>
+        <div>{{form.role}}</div>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Password:</label>
+        <div>{{form.password}}</div>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Confirm Password:</label>
+        <input type= "text" placeholder = "... and confirm it"> </input>
+      </div>
+
+
+      <button type="submit" class="btn-success">Submit</button>
+    </form>
+  </div></div>
+  </body>
+</html>

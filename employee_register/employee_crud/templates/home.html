@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+{% if user.is_authenticated %} 
+<div class= "nav-container">
+<h1 class="logo-main"> Aapti Techologies.</h1>
+<div class="nav-links">
+  <p class="nav-item" onclick="location.href='/emp'">Add Employees</p><br><br>
+  <p class="nav-item" onclick="location.href='/showemployee'">Employees List</p><br><br>
+</div>
+</div>
+<div class="home-container">
+  <p class="main-head">Hi {{ user.username }}</p> 
+  
+
+  <div class="btn-container">
+    <button class="custom-button" onclick="location.href='/emp'">Add Employees</button><br><br>
+    <button class="custom-button" onclick="location.href='/showemployee'">Employees List</button><br><br>
+  </div>
+  
+  <p><a href="{% url 'logout' %}" class = "logout-link">Logout</a></p>
+</div>
+{% else %}
+<div class= "nav-container">
+<h1 class="logo-main"> Aapti Techologies.</h1>
+</div>
+    <div class="logout-container">
+      <h5 class="main-head">You are not Logged in</h3>
+      <a href="{% url 'login' %}"><button class="custom-button">Login</button></a>
+    </div>
+{% endif %}
+{% endblock %}
